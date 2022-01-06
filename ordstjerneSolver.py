@@ -1,11 +1,19 @@
+"""
+@author Mikkel Aas
+@date 7/1/2022
+
+Credit:
+Word list from Norsk Ordbank
+"""
+
 import pandas as pd
 
 # Constants
-FULLFORMSLISTE_PATH = "fullformsliste.csv"
+WORDS_PATH = "words.csv"
 COLUMN_TAG_OPPSLAG = "OPPSLAG"
 
 # Dictionary
-fullformsliste = pd.read_csv(FULLFORMSLISTE_PATH)
+fullformsliste = pd.read_csv(WORDS_PATH)
 
 
 # ordstjerne_solver loops through every norwegian word that contains a certain letter and does not contain a list of letters
@@ -38,4 +46,4 @@ def isInWord(char_list, string):
     return string_contains_chars
 
 
-print(ordstjerne_solver(["i", "o", "u", "ø", "t", "n", "k"], "k"))
+print(ordstjerne_solver(["a", "r", "u", "c", "t", "y", "o"], "o"))

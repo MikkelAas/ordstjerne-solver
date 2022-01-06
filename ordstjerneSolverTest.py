@@ -3,13 +3,13 @@ import unittest
 import pandas as pd
 
 # Constants
-FULLFORMSLISTE_PATH = "fullformsliste.csv"
+WORDS_PATH = "words.csv"
 COLUMN_TAG_OPPSLAG = "OPPSLAG"
 ALLOWED_LETTERS = ["i", "o", "u", "ø", "t", "n", "k"]
 MUST_HAVE = "k"
 
 # Dictionary
-fullformsliste = pd.read_csv(FULLFORMSLISTE_PATH)
+fullformsliste = pd.read_csv(WORDS_PATH)
 
 
 class TestOrdStjerneSolver(unittest.TestCase):
