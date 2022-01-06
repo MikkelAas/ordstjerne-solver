@@ -19,7 +19,7 @@ def ordstjerne_solver(letters_to_include, must_have_letter):
             and (must_have_letter in word)
             and isInWord(letters_to_include, word)
         ):
-            result.append(str(fullformsliste[COLUMN_TAG_OPPSLAG][i]))
+            result.append(word)
 
     result = remove_duplicates(result)
 
