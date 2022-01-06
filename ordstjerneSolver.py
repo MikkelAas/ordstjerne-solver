@@ -13,7 +13,7 @@ def ordstjerne_solver(letters_to_include, must_have_letter):
     result = []
 
     for i in range(len(fullformsliste[COLUMN_TAG_OPPSLAG])):
-        word = str(fullformsliste[COLUMN_TAG_OPPSLAG][i])
+        word = str(fullformsliste[COLUMN_TAG_OPPSLAG][i]).lower()
         if (
             (len(word) >= 4)
             and (must_have_letter in word)
@@ -38,4 +38,4 @@ def isInWord(char_list, string):
     return string_contains_chars
 
 
-#### print(ordstjerne_solver(["i", "o", "u", "ø", "t", "n", "k"], "k"))
+print(ordstjerne_solver(["i", "o", "u", "ø", "t", "n", "k"], "k"))
