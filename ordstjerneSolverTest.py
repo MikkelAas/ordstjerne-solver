@@ -15,7 +15,7 @@ fullformsliste = pd.read_csv(FULLFORMSLISTE_PATH)
 class TestOrdStjerneSolver(unittest.TestCase):
     def test_ordstjerne_solver(self):
         result = ordstjerne_solver(ALLOWED_LETTERS, MUST_HAVE)
-        self.assertEqual(len(result), 49)
+        self.assertEqual(len(result), 50)
 
 
 if __name__ == "__main__":
