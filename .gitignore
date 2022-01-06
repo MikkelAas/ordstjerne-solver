@@ -130,3 +130,6 @@ dmypy.json
 
 # Too big file
 fullformsliste.csv
+
+# Playground file
+test.py
