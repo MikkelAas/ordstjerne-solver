@@ -1,4 +1,4 @@
-from ordstjerneSolver import ordstjerne_solver
+from ordstjerneSolver import isInWord, ordstjerne_solver
 import unittest
 import pandas as pd
 
@@ -16,6 +16,9 @@ class TestOrdStjerneSolver(unittest.TestCase):
     def test_ordstjerne_solver(self):
         result = ordstjerne_solver(ALLOWED_LETTERS, MUST_HAVE)
         self.assertEqual(len(result), 50)
+    def test_isInWord(self):
+        result = isInWord(ALLOWED_LETTERS, "nøtt")
+        self.assertTrue(result)
 
 
 if __name__ == "__main__":
