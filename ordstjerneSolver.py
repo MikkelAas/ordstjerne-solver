@@ -33,17 +33,14 @@ def ordstjerne_solver(letters_to_include, must_have_letter):
 
     return result
 
-
 # Removes duplicates from list
 def remove_duplicates(x):
     return list(dict.fromkeys(x))
-
 
 # Checks if a word only consist of a certain set of characters
 def isInWord(char_list, string):
     matched_list = [characters in char_list for characters in string]
     string_contains_chars = all(matched_list)
     return string_contains_chars
-
 
 print(ordstjerne_solver(["a", "r", "u", "c", "t", "y", "o"], "o"))
