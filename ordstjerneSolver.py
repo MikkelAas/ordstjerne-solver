@@ -8,6 +8,8 @@ Word list from Norsk Ordbank
 
 import pandas as pd
 
+from util import lowerArray
+
 # Constants
 WORDS_PATH = "words.csv"
 COLUMN_TAG_OPPSLAG = "OPPSLAG"
@@ -20,11 +22,14 @@ fullformsliste = pd.read_csv(WORDS_PATH)
 def ordstjerne_solver(letters_to_include, must_have_letter):
     result = []
 
+    # makes each char in array lower case
+    letters_to_include = lowerArray(letters_to_include)
+
     for i in range(len(fullformsliste[COLUMN_TAG_OPPSLAG])):
         word = str(fullformsliste[COLUMN_TAG_OPPSLAG][i]).lower()
         if (
             (len(word) >= 4)
-            and (must_have_letter in word)
+            and (must_have_letter.lower() in word)
             and isInWord(letters_to_include, word)
         ):
             result.append(word)
