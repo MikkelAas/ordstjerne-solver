@@ -3,7 +3,7 @@ import unittest
 import pandas as pd
 
 # Constants
-WORDS_PATH = "words.csv"
+WORDS_PATH = "data/words.csv"
 COLUMN_TAG_OPPSLAG = "OPPSLAG"
 ALLOWED_LETTERS = ["i", "o", "u", "Ø", "t", "n", "k"]
 MUST_HAVE = "k"

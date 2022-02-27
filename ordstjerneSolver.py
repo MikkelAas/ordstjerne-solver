@@ -12,7 +12,7 @@ import pandas as pd
 from util import lowerArray
 
 # Constants
-WORDS_PATH = "words.csv"
+WORDS_PATH = "data/words.csv"
 COLUMN_TAG_OPPSLAG = "OPPSLAG"
 
 # Dictionary
