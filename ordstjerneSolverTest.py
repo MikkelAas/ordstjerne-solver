@@ -5,7 +5,7 @@ import pandas as pd
 # Constants
 WORDS_PATH = "words.csv"
 COLUMN_TAG_OPPSLAG = "OPPSLAG"
-ALLOWED_LETTERS = ["i", "o", "u", "ø", "t", "n", "k"]
+ALLOWED_LETTERS = ["i", "o", "u", "Ø", "t", "n", "k"]
 MUST_HAVE = "k"
 
 # Dictionary
@@ -16,6 +16,7 @@ class TestOrdStjerneSolver(unittest.TestCase):
     def test_ordstjerne_solver(self):
         result = ordstjerne_solver(ALLOWED_LETTERS, MUST_HAVE)
         self.assertEqual(len(result), 50)
+
     def test_isInWord(self):
         result = isInWord(ALLOWED_LETTERS, "nøtt")
         self.assertTrue(result)
