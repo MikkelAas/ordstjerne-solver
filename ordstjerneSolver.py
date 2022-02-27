@@ -6,6 +6,7 @@ Credit:
 Word list from Norsk Ordbank
 """
 
+from typing import List
 import pandas as pd
 
 from util import lowerArray
@@ -19,7 +20,7 @@ fullformsliste = pd.read_csv(WORDS_PATH)
 
 
 # ordstjerne_solver loops through every norwegian word that contains a certain letter and does not contain a list of letters
-def ordstjerne_solver(letters_to_include, must_have_letter):
+def ordstjerne_solver(letters_to_include: List, must_have_letter: str) -> List:
     result = []
 
     # makes each char in array lower case
@@ -40,12 +41,16 @@ def ordstjerne_solver(letters_to_include, must_have_letter):
 
 
 # Removes duplicates from list
-def remove_duplicates(x):
-    return list(dict.fromkeys(x))
+def remove_duplicates(input: List):
+    return list(dict.fromkeys(input))
 
 
 # Checks if a word only consist of a certain set of characters
-def isInWord(char_list, string):
-    matched_list = [characters in char_list for characters in string]
+def isInWord(char_list: List, word: str) -> bool:
+    char_list = lowerArray(char_list)
+
+    matched_list = [characters in char_list for characters in word.lower()]
+
     string_contains_chars = all(matched_list)
+
     return string_contains_chars
