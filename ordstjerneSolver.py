@@ -9,7 +9,7 @@ Word list from Norsk Ordbank
 from typing import List
 import pandas as pd
 
-from util import lowerArray
+from utils.arrayUtils import lowerArray
 
 # Constants
 WORDS_PATH = "data/words.csv"
