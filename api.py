@@ -16,6 +16,7 @@ def solve():
     all_letters: list = body['allLetters']
     special_letter: str = body['specialLetter']
 
+    # check types
     if (not isinstance(all_letters, list)
             or not isinstance(special_letter, str)
             or not isinstance(all_letters[0], str)
