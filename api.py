@@ -1,6 +1,4 @@
-from operator import eq
 from flask import Flask, jsonify, make_response, request
-from numpy import equal
 
 from ordstjerneSolver import ordstjerne_solver
 
