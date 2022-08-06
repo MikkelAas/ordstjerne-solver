@@ -1,8 +1,23 @@
 <script lang="ts">
-	import data from '../data/words.json';
+	import getWords from '../services/fetchWords';
 
-	let specialLetter: string;
+	let words = [''];
+
+	async function handleSolveClick() {
+		const object = {
+			letters: Array.from(letters),
+			specialLetter: specialLetter
+		};
+
+		const result = await getWords(object);
+
+		if (!(result instanceof Error)) {
+			words = result.words;
+		}
+	}
+
 	let letters: string;
+	let specialLetter: string;
 </script>
 
 <div class="main">
@@ -29,10 +44,10 @@
 		/>
 		<br />
 
-		<button>Solve</button>
+		<button on:click={handleSolveClick}>Solve</button>
 	</div>
 	<div class="result">
-		{#each data.words as word}
+		{#each words as word}
 			<p>{word}</p>
 		{/each}
 	</div>
@@ -72,9 +87,9 @@
 	}
 	.footer {
 		grid-row: 4/5;
-        width: 30%;
-        margin: auto;
-        border-top: 0.01ch black solid;
+		width: 30%;
+		margin: auto;
+		border-top: 0.01ch black solid;
 		text-align: center;
 	}
 	input {
