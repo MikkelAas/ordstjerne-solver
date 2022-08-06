@@ -1,8 +1,11 @@
 from flask import Flask, jsonify, make_response, request
 
+from flask_cors import CORS
+
 from ordstjerneSolver import ordstjerne_solver
 
 app = Flask(__name__)
+CORS(app)
 
 
 @app.route('/solve', methods=['POST'])
