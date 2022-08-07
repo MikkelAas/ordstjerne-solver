@@ -1,19 +1,32 @@
 <script lang="ts">
 	import getWords from '../services/fetchWords';
 
+	let isLoading = false;
+
 	let words = [''];
 
-	async function handleSolveClick() {
+	async function handleSolveClick(): Promise<void> {
+		isLoading = true;
+
 		const object = {
 			letters: Array.from(letters),
 			specialLetter: specialLetter
 		};
 
-		const result = await getWords(object);
-
-		if (!(result instanceof Error)) {
-			words = result.words;
-		}
+		getWords(object)
+			.then((result) => {
+				if (!(result instanceof Error)) {
+					words = result.words;
+				} else {
+					words = ['Unable to find any words.']
+				}
+			})
+			.catch((error) => {
+				return;
+			})
+			.finally(() => {
+				isLoading = false;
+			});
 	}
 
 	let letters: string;
@@ -47,9 +60,13 @@
 		<button on:click={handleSolveClick}>Solve</button>
 	</div>
 	<div class="result">
-		{#each words as word}
-			<p>{word}</p>
-		{/each}
+		{#if isLoading}
+			<p>I'm loading...</p>
+		{:else}
+			{#each words as word}
+				<p>{word}</p>
+			{/each}
+		{/if}
 	</div>
 	<div class="footer">
 		<p>&#x1f680</p>
